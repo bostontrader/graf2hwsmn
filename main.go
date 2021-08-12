@@ -47,6 +47,8 @@ func main() {
 	http.HandleFunc("/", requestHandlerWrapper(config))
 
 	fmt.Printf("Starting graf2hwsmn server using configFile = %s\n", configFileName)
+	fmt.Printf("Listening on %s\n", config.ListenAddr)
+
 	if err := http.ListenAndServe(config.ListenAddr, nil); err != nil {
 		log.Fatal(err)
 	}
