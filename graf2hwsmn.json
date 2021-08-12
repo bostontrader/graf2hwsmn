@@ -3,5 +3,6 @@
     "SecretKey":  "",
     "EndPoint":  "",
     "ProjectID":  "",
-    "TopicURN":  ""
+    "TopicURN":  "",
+    "ListenAddr": "0.0.0.0:9112"
 }

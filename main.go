@@ -14,11 +14,12 @@ import (
 // https://support.huaweicloud.com/en-us/api-smn/en-us_topic_0036017316.html
 
 type Config struct {
-	AccessKey string
-	SecretKey string
-	EndPoint  string
-	ProjectID string
-	TopicURN  string
+	AccessKey  string
+	SecretKey  string
+	EndPoint   string
+	ProjectID  string
+	TopicURN   string
+	ListenAddr string
 }
 
 func main() {
@@ -46,7 +47,7 @@ func main() {
 	http.HandleFunc("/", requestHandlerWrapper(config))
 
 	fmt.Printf("Starting graf2hwsmn server using configFile = %s\n", configFileName)
-	if err := http.ListenAndServe(":9112", nil); err != nil {
+	if err := http.ListenAndServe(config.ListenAddr, nil); err != nil {
 		log.Fatal(err)
 	}
 
