@@ -23,7 +23,7 @@ type Config struct {
 
 func main() {
 
-	configFileNameDefault := "grafana2huaweismn.json"
+	configFileNameDefault := "graf2hwsmn.json"
 	var configFileName string
 	flag.StringVar(&configFileName, "c", configFileNameDefault,
 		fmt.Sprintf("The name of a config file to use.  Default is %s", configFileNameDefault))
@@ -45,7 +45,7 @@ func main() {
 	//http.HandleFunc("/", requestHandler)
 	http.HandleFunc("/", requestHandlerWrapper(config))
 
-	fmt.Printf("Starting grafana2huaweismn server using configFile = %s\n", configFileName)
+	fmt.Printf("Starting graf2hwsmn server using configFile = %s\n", configFileName)
 	if err := http.ListenAndServe(":9112", nil); err != nil {
 		log.Fatal(err)
 	}
